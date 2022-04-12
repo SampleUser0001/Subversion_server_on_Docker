@@ -1,0 +1,13 @@
+version: '3'
+services:
+  svn_server:
+    image: kuchida1981/subversion-httpd:latest
+    container_name: subversion
+    ports: 
+      - "10080:80"
+    volumes:
+      - ./repos:/var/svn/repos
+    environment:
+      SVN_DEFAULT_USER: "username"
+      SVN_DEFAULT_USER_PASSWD: "secret"
+      SVN_DEFAULT_REPOSITORY: "svn_repo"
